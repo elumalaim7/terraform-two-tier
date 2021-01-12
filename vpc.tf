@@ -22,7 +22,7 @@ resource "aws_eip" "nat" {
 
 resource "aws_nat_gateway" "natgw" { 
     allocation_id = "${aws_eip.nat.id}"
-    subnet_id = "${aws_subnet.us-east-1a-public.id}"
+    subnet_id = "${aws_subnet.ap-southeast-1a-public.id}"
 
     tags = {
         Name = "NAT Gateway"
@@ -30,9 +30,9 @@ resource "aws_nat_gateway" "natgw" {
     }
 }
 
-resource "aws_subnet" "us-east-1a-public" {
+resource "aws_subnet" "ap-southeast-1a-public" {
     vpc_id = "${aws_vpc.customvpc.id}"
-    availability_zone = "us-east-1a"
+    availability_zone = "ap-southeast-1a"
     cidr_block = "${var.public_subnet_cidr}"
 
     tags {
@@ -41,7 +41,7 @@ resource "aws_subnet" "us-east-1a-public" {
     }
 }
 
-resource "aws_route_table" "us-east-1a-public" {
+resource "aws_route_table" "ap-southeast-1a-public" {
     vpc_id = "${aws_vpc.customvpc.id}"
 
     route {
@@ -55,15 +55,15 @@ resource "aws_route_table" "us-east-1a-public" {
     }
 }
 
-resource "aws_route_table_association" "us-east-1a-public" {
-    subnet_id = "${aws_subnet.us-east-1a-public.id}"
-    route_table_id = "${aws_route_table.us-east-1a-public.id}"
+resource "aws_route_table_association" "ap-southeast-1a-public" {
+    subnet_id = "${aws_subnet.ap-southeast-1a-public.id}"
+    route_table_id = "${aws_route_table.ap-southeast-1a-public.id}"
 }
 
-resource "aws_subnet" "us-east-1b-private" {
+resource "aws_subnet" "ap-southeast-1b-private" {
     vpc_id = "${aws_vpc.customvpc.id}"
     cidr_block = "${var.private_subnet_cidr}"
-    availability_zone = "us-east-1b"
+    availability_zone = "ap-southeast-1b"
 
     tags {
         Name = "Private Subnet"
@@ -71,7 +71,7 @@ resource "aws_subnet" "us-east-1b-private" {
     }
 }
 
-resource "aws_route_table" "us-east-1b-private" {
+resource "aws_route_table" "ap-southeast-1b-private" {
     vpc_id = "${aws_vpc.customvpc.id}"
 
     route {
@@ -85,7 +85,7 @@ resource "aws_route_table" "us-east-1b-private" {
     }
 }
 
-resource "aws_route_table_association" "us-east-1b-private" {
-    subnet_id = "${aws_subnet.us-east-1b-private.id}"
-    route_table_id = "${aws_route_table.us-east-1b-private.id}"
+resource "aws_route_table_association" "ap-southeast-1b-private" {
+    subnet_id = "${aws_subnet.ap-southeast-1b-private.id}"
+    route_table_id = "${aws_route_table.ap-southeast-1b-private.id}"
 }
