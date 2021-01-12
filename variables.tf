@@ -5,7 +5,7 @@ variable "aws_secret_key" {
     default = ""
 }
 variable "aws_region" {
-    default = "us-east-1"
+    default = "ap-southeast-1"
 }
 
 variable "vpc_cidr" {
@@ -25,7 +25,7 @@ variable "allow_all" {
 }
 
 variable "aws_key_name" {
-    default = "yourkeyname"
+    default = "Devops"
 }
 
 variable "private_key_path" {
