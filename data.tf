@@ -1,5 +1,6 @@
 data "aws_ami" "ubuntu" {
     owners = ["self"]
+    executable_users = ["self"]
     most_recent = true
 
     filter {
