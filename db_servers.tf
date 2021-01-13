@@ -43,11 +43,11 @@ resource "aws_security_group" "dbsg" {
 
 resource "aws_instance" "db1" {
     ami = "${data.aws_ami.ubuntu.id}"
-    availability_zone = "us-east-1b"
+    availability_zone = "ap-southeast-1b"
     instance_type = "t2.micro"
     key_name = "${var.aws_key_name}"
     vpc_security_group_ids = ["${aws_security_group.dbsg.id}"]
-    subnet_id = "${aws_subnet.us-east-1b-private.id}"
+    subnet_id = "${aws_subnet.ap-southeast-1b-private.id}"
     source_dest_check = false
 
     tags = {
