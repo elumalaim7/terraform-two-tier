@@ -43,11 +43,11 @@ resource "aws_security_group" "websg" {
 
 resource "aws_instance" "web1" {
     ami = "${data.aws_ami.ubuntu.id}"
-    availability_zone = "us-east-1a"
+    availability_zone = "ap-southeast-1a"
     instance_type = "t2.micro"
     key_name = "${var.aws_key_name}"
     vpc_security_group_ids = ["${aws_security_group.websg.id}"]
-    subnet_id = "${aws_subnet.us-east-1a-public.id}"
+    subnet_id = "${aws_subnet.ap-southeast-1a-public.id}"
     associate_public_ip_address = true
     source_dest_check = false
 
