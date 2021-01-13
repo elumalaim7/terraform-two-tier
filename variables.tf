@@ -29,5 +29,5 @@ variable "aws_key_name" {
 }
 
 variable "private_key_path" {
-    default = "/path/to/yourkeyname.pem"
+    default = "${file("~/.ssh/Devops.pem")}"
 }
