@@ -31,3 +31,7 @@ variable "aws_key_name" {
 variable "private_key_path" {
     default = "~/.ssh/Devops.pem"
 }
+
+variable "host" {
+    default = ""
+}
