@@ -1,4 +1,5 @@
 data "aws_ami" "ubuntu" {
+    owners = ["self"]
     most_recent = true
 
     filter {
