@@ -61,6 +61,7 @@ resource "aws_instance" "web1" {
         user     = "ubuntu"
         timeout = "1m"
         private_key = "${file(var.private_key_path)}"
+        host        = "${var.host}"
     }
 
     provisioner "remote-exec" {
