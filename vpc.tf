@@ -35,7 +35,7 @@ resource "aws_subnet" "ap-southeast-1a-public" {
     availability_zone = "ap-southeast-1a"
     cidr_block = "${var.public_subnet_cidr}"
 
-    tags {
+    tags = {
         Name = "Public Subnet"
         Terraform = true
     }
@@ -49,7 +49,7 @@ resource "aws_route_table" "ap-southeast-1a-public" {
         gateway_id = "${aws_internet_gateway.igw.id}"
     }
 
-    tags {
+    tags = {
         Name = "Public Subnet"
         Terraform = true
     }
@@ -65,8 +65,9 @@ resource "aws_subnet" "ap-southeast-1b-private" {
     cidr_block = "${var.private_subnet_cidr}"
     availability_zone = "ap-southeast-1b"
 
-    tags {
+    tags = {
         Name = "Private Subnet"
+        Terraform = true
     }
 }
 
@@ -78,7 +79,7 @@ resource "aws_route_table" "ap-southeast-1b-private" {
         nat_gateway_id = "${aws_nat_gateway.natgw.id}"
     }
 
-    tags {
+    tags = {
         Name = "Private Subnet"
         Terraform = true
     }
